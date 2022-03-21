@@ -29,7 +29,7 @@ div.bg-info i.fas {
     border-radius: 50%;
 }
 
-.fas {
+i {
     color: grey;
     padding: 0 6px;
 }
@@ -37,4 +37,12 @@ div.bg-info i.fas {
 span.info-text {
     font-size: 12px;
     color: gray;
+}
+
+#list-contact:hover {
+    background-color: chartreuse;
+}
+
+.bg_chat {
+    background-image: url(../img/mine.jpg);
 }
