@@ -20,7 +20,7 @@
 <body>
     <div class="bg-top"></div>
     <div class="bg-botton"></div>
-    <main class="container-fluid">
+    <main id="app" class="container-fluid">
         <section class="row justify-content-center align-items-center w-100 h-100 position-absolute top-0">
             <div class="col-12 d-flex w-75 h-75 ">
                 <div class="col-2 col-sm-3 col-md-4 bg-white border-end div-aside">
@@ -60,15 +60,17 @@
                     </div>
 
                     <!-- contact list  -->
-
-                    <div id="list-contact" class="overflow-auto d-flex position-relative">
-                        <div>
-                            <img class="rounded-pill " src="img/avatar_1.jpg" alt="">
-                        </div>
-                        <div class="d-none d-md-block">
-                            <span class="d-none d-md-block">Michele</span>
-                            <span class="info-text">Ultimo messaggio inviato</span>
-                            <span class="info-text position-absolute top-0 end-0 pe-1">12:00</span>
+                    <div class="overflow-auto">
+                        <div id="list-contact" class="d-flex position-relative" v-for="(element,index) in contacts "
+                            @click="setUser(element)">
+                            <div>
+                                <img class="rounded-pill " :src="'img/avatar' + element.avatar + '.jpg'" alt="">
+                            </div>
+                            <div class="d-none d-md-block">
+                                <span class="d-none d-md-block">{{element.name}}</span>
+                                <span class="info-text">Ultimo messaggio inviato</span>
+                                <span class="info-text position-absolute top-0 end-0 pe-1">12:00</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -80,7 +82,10 @@
                     <div class="header-search d-flex bg-light justify-content-between">
                         <div class="col col-lg-7">
                             <img class="rounded-pill " src="img/avatar_1.jpg" alt="">
-                            <span class="d-none d-md-inline-block">michele</span>
+                            <div class="d-inline-block d-flex flex-column">
+                                <span class="d-none d-md-inline-block">Michele</span>
+                                <span class="info-text">Ultimo acccesso oggi alle 12:00</span>
+                            </div>
                         </div>
                         <div class="col py-2 text-end">
                             <i class="fas fa-search"></i>
@@ -91,21 +96,12 @@
 
                     <!-- chat -->
 
-                    <div id="myChat" class="pt-4 d-flex flex-column overflow-auto">
-                        <div id="my-sent-chat"
-                            class="d-inline-block p-2 rounded-3 offset-6 col-5 position-relative py-3 my-1">
-                            <span>Hai portato a spasso il cane?</span>
-                            <span class="position-absolute bottom-0 end-0 info-text">12:00</span>
-                        </div>
-                        <div id="my-sent-chat"
-                            class="d-inline-block p-2 rounded-3 offset-6 col-5 position-relative py-3 my-1">
-                            <span>Hai portato a spasso il cane?</span>
-                            <span class="position-absolute bottom-0 end-0 info-text">12:00</span>
-                        </div>
-                        <div id="my-message-received"
-                            class="bg-white d-inline-block p-2 rounded-3 offset-1 col-5 position-relative py-3 my-1">
-                            <span>Hai portato a spasso il cane?</span>
-                            <span class="position-absolute bottom-0 end-0 info-text">12:00</span>
+                    <div id="myChat" class="pt-4 px-2 d-flex flex-column overflow-auto">
+                        <div class="d-inline-block p-2 rounded-3 col-5 position-relative py-3 my-1 "
+                            v-for="(messages,element,index) in currentUser?.messages"
+                            :class="(messages.status== 'sent') ? 'my-sent-chat , offset-6' : 'my-receveid-chat'">
+                            <span>{{messages.message}}</span>
+                            <span class="position-absolute bottom-0 end-0 info-text">{{messages.date}}</span>
                         </div>
                     </div>
 
@@ -115,7 +111,7 @@
                         <div class="input-group-text">
                             <i class="fa-solid fa-face-smile"></i>
                         </div>
-                        <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+                        <input type="text" v-model="inputVal" class="form-control" placeholder="Scrivi un messaggio">
                         <div class="input-group-text">
                             <i class="fa-solid fa-microphone"></i>
                         </div>

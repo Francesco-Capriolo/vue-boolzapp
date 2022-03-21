@@ -36,7 +36,7 @@ i {
 span.info-text {
     font-size: 12px;
     color: gray;
-    padding: 5px;
+    padding: 0 5px 5px 0;
 }
 
 #list-contact:hover {
@@ -54,7 +54,7 @@ span.info-text {
     background-image: url(../img/mine.jpg);
 }
 
-#my-sent-chat {
+.my-sent-chat {
     background-color: #d5f9ba;
 }
 
@@ -64,4 +64,8 @@ span.info-text {
 
 .bottom-search {
     height: 50px;
+}
+
+.my-receveid-chat {
+    background-color: white;
 }
