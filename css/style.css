@@ -1,0 +1,23 @@
+.bg-top {
+    width: 100vw;
+    height: 20vh;
+    background-color: darkcyan;
+}
+
+.bg-botton {
+    width: 100vw;
+    height: 80vh;
+    background-color: blanchedalmond;
+}
+
+main {
+    height: 100vh;
+}
+
+section {
+    z-index: 54343;
+}
+
+.fas {
+    color: grey;
+}
