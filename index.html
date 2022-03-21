@@ -18,12 +18,12 @@
 </head>
 
 <body>
+    <div class="bg-top"></div>
+    <div class="bg-botton"></div>
     <main class="container-fluid">
-        <div class="bg-top"></div>
-        <div class="bg-botton"></div>
         <section class="row justify-content-center align-items-center w-100 h-100 position-absolute top-0">
             <div class="col-12 d-flex w-75 h-75 ">
-                <div class="col-2 col-sm-3 col-md-4 bg-white">
+                <div class="col-2 col-sm-3 col-md-4 bg-white border-end div-aside">
 
                     <!-- div aside -->
 
@@ -44,7 +44,7 @@
                     <div class="bg-info d-flex p-2">
                         <div><i class="fas fa-bell-slash bg-white p-2"></i></div>
                         <div class="d-none d-md-block ps-1">
-                            <span class="d-block">Ricevi notifiche di nuovi messaggi</span>
+                            <span class="d-block fs-6">Ricevi notifiche di nuovi messaggi</span>
                             <span class="text-decoration-underline info-text">Attiva notifiche
                                 desktop</span>
                         </div>
@@ -68,7 +68,7 @@
                         <div class="d-none d-md-block">
                             <span class="d-none d-md-block">Michele</span>
                             <span class="info-text">Ultimo messaggio inviato</span>
-                            <span class="info-text position-absolute top-0 end-0">12:00</span>
+                            <span class="info-text position-absolute top-0 end-0 pe-1">12:00</span>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                             <img class="rounded-pill " src="img/avatar_1.jpg" alt="">
                             <span class="d-none d-md-inline-block">michele</span>
                         </div>
-                        <div class="col py-2 text-end d-none d-md-block">
+                        <div class="col py-2 text-end">
                             <i class="fas fa-search"></i>
                             <i class="fa-solid fa-paperclip"></i>
                             <i class="fas fa-ellipsis-v"></i>
@@ -91,9 +91,36 @@
 
                     <!-- chat -->
 
-                    <div>
-
+                    <div id="myChat" class="pt-4 d-flex flex-column overflow-auto">
+                        <div id="my-sent-chat"
+                            class="d-inline-block p-2 rounded-3 offset-6 col-5 position-relative py-3 my-1">
+                            <span>Hai portato a spasso il cane?</span>
+                            <span class="position-absolute bottom-0 end-0 info-text">12:00</span>
+                        </div>
+                        <div id="my-sent-chat"
+                            class="d-inline-block p-2 rounded-3 offset-6 col-5 position-relative py-3 my-1">
+                            <span>Hai portato a spasso il cane?</span>
+                            <span class="position-absolute bottom-0 end-0 info-text">12:00</span>
+                        </div>
+                        <div id="my-message-received"
+                            class="bg-white d-inline-block p-2 rounded-3 offset-1 col-5 position-relative py-3 my-1">
+                            <span>Hai portato a spasso il cane?</span>
+                            <span class="position-absolute bottom-0 end-0 info-text">12:00</span>
+                        </div>
                     </div>
+
+                    <!-- chat bottom -->
+
+                    <div class="input-group mb-3 bottom-search">
+                        <div class="input-group-text">
+                            <i class="fa-solid fa-face-smile"></i>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+                        <div class="input-group-text">
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>

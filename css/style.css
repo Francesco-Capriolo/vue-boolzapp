@@ -1,7 +1,20 @@
+/* color body */
 .bg-top {
     width: 100vw;
     height: 20vh;
-    background-color: darkcyan;
+    background-color: #009688;
+}
+
+.bg-botton {
+    width: 100vw;
+    height: 80vh;
+    background-color: #d9dbd4;
+}
+
+/* div left */
+
+.div-aside {
+    min-width: 70px;
 }
 
 img {
@@ -9,23 +22,9 @@ img {
     padding: 5px;
 }
 
-.bg-botton {
-    width: 100vw;
-    height: 80vh;
-    background-color: blanchedalmond;
-}
-
-main {
-    height: 100vh;
-}
-
-section {
-    z-index: 54343;
-}
-
 div.bg-info i.fas {
     font-size: 30px;
-    color: aqua;
+    color: #8edafc;
     border-radius: 50%;
 }
 
@@ -37,12 +36,32 @@ i {
 span.info-text {
     font-size: 12px;
     color: gray;
+    padding: 5px;
 }
 
 #list-contact:hover {
-    background-color: chartreuse;
+    background-color: #f3eeea;
 }
+
+.header-search,
+.bottom-search {
+    background-color: #f3eeea;
+}
+
+/* main chat */
 
 .bg_chat {
     background-image: url(../img/mine.jpg);
+}
+
+#my-sent-chat {
+    background-color: #d5f9ba;
+}
+
+#myChat {
+    height: calc(100% - 100px);
+}
+
+.bottom-search {
+    height: 50px;
 }
