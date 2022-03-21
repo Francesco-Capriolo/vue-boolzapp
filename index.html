@@ -80,11 +80,12 @@
 
                 <div class="col-10 col-sm-9 col-md-8 bg_chat">
                     <div class="header-search d-flex bg-light justify-content-between">
-                        <div class="col col-lg-7">
-                            <img class="rounded-pill " src="img/avatar_1.jpg" alt="">
+                        <div class="col col-lg-7 d-flex" v-for="(element,index) in contacts"
+                            :class="(setUser(element)) ? 'd-block' : 'd-none'">
+                            <img class="rounded-pill " src="'img/avatar' + element.avatar + '.jpg'" alt="">
                             <div class="d-inline-block d-flex flex-column">
-                                <span class="d-none d-md-inline-block">Michele</span>
-                                <span class="info-text">Ultimo acccesso oggi alle 12:00</span>
+                                <span class="d-none d-md-inline-block">{{element.name}}</span>
+                                <span class="info-text">Ultimo accesso oggi alle 12:00</span>
                             </div>
                         </div>
                         <div class="col py-2 text-end">
@@ -97,9 +98,9 @@
                     <!-- chat -->
 
                     <div id="myChat" class="pt-4 px-2 d-flex flex-column overflow-auto">
-                        <div class="d-inline-block p-2 rounded-3 col-5 position-relative py-3 my-1 "
+                        <div class="d-inline-block p-2 rounded-3 col-5 position-relative py-4 my-1"
                             v-for="(messages,element,index) in currentUser?.messages"
-                            :class="(messages.status== 'sent') ? 'my-sent-chat , offset-6' : 'my-receveid-chat'">
+                            :class="(messages.status == 'sent') ? 'my-sent-chat , offset-6' : 'my-receveid-chat'">
                             <span>{{messages.message}}</span>
                             <span class="position-absolute bottom-0 end-0 info-text">{{messages.date}}</span>
                         </div>
@@ -111,7 +112,8 @@
                         <div class="input-group-text">
                             <i class="fa-solid fa-face-smile"></i>
                         </div>
-                        <input type="text" v-model="inputVal" class="form-control" placeholder="Scrivi un messaggio">
+                        <input type="text" v-model="inputVal" class="form-control" placeholder="Scrivi un messaggio"
+                            @keydown.enter="addVal(inputVal)">
                         <div class="input-group-text">
                             <i class="fa-solid fa-microphone"></i>
                         </div>

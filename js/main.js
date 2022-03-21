@@ -161,10 +161,26 @@ const app = new Vue({
     methods: {
         setUser(user) {
             this.currentUser = user;
+        },
+        addVal(content) {
+            if (content.trim() !== "") {
+                this.contacts[messages].push({
+                    date: getHours(),
+                    message: content,
+                    status: 'sent',
+                });
+                this.inputVal = "";
+            } else {
+                console.warn("non hai inserito niente");
+            }
+        },
+        isVisible() {
+            this.visible = !this.visible
         }
-
     }
 });
+
+
 
 /* 
 Milestone 1
