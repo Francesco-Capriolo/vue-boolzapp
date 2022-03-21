@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <!-- style css -->
     <link rel="stylesheet" href="css/style.css">
-    <title></title>
+    <title>Vue WhatsApp</title>
 </head>
 
 <body>
@@ -23,25 +23,37 @@
         <div class="bg-botton"></div>
         <section class="row justify-content-center align-items-center w-100 h-100 position-absolute top-0">
             <div class="col-12 d-flex w-75 h-75 ">
-                <div class="col-1 col-sm-3 col-md-4 bg-danger">
+                <div class="col-1 col-sm-3 col-md-4 bg-white">
 
                     <!-- div aside -->
 
-                    <div class="header-search d-flex bg-light">
-                        <div class="col-9">
-                            <img class="rounded-pill" src="" alt="">
-                            <span>Francesco</span>
+                    <div class="header-search d-flex bg-light justify-content-between">
+                        <div class="col col-lg-7">
+                            <img class="rounded-pill " src="img/avatar_io.jpg" alt="">
+                            <span class="d-none d-md-inline-block">Francesca</span>
                         </div>
-                        <div class="col-3">
+                        <div class="col py-2 text-end d-none d-md-block">
                             <i class="fas fa-circle-notch"></i>
                             <i class="fas fa-comment-alt"></i>
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
                     </div>
-                    <div class="bg-info">
-                        <img src="" alt="">
-                        <span class="">Ricevi notifiche di nuovi messaggi</span>
-                        <span class="text-decoration-undeline">Attiva notifiche desktop</span>
+
+                    <!-- input search -->
+
+                    <div class="bg-info d-flex p-2">
+                        <div><i class="fas fa-bell-slash bg-white p-2"></i></div>
+                        <div class="d-none d-md-block ps-1">
+                            <span class="d-block">Ricevi notifiche di nuovi messaggi</span>
+                            <span class="text-decoration-underline">Attiva notifiche
+                                desktop</span>
+                        </div>
+
+                    </div>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i
+                                class="fas fa-search"></i></button>
+                        <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat">
                     </div>
                 </div>
 
