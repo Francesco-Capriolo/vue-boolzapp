@@ -5,7 +5,7 @@
 }
 
 img {
-    width: 40px;
+    width: 50px;
     padding: 5px;
 }
 
@@ -34,7 +34,7 @@ div.bg-info i.fas {
     padding: 0 6px;
 }
 
-span.text-decoration-underline {
-    font-size: 14px;
+span.info-text {
+    font-size: 12px;
     color: gray;
 }
