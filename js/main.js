@@ -1,7 +1,6 @@
 const app = new Vue({
     el: '#app',
     data: {
-        inputVal: "",
         contacts: [{
                 name: 'Michele',
                 avatar: '_1',
@@ -157,6 +156,12 @@ const app = new Vue({
             }
         ],
         currentUser: null,
+        inputVal: "",
+        search: "",
+        elementVisible: true,
+    },
+    created() {
+        setTimeout(() => this.elementVisible = false, 1000)
     },
     methods: {
         setUser(user) {
@@ -166,7 +171,7 @@ const app = new Vue({
         addVal(content) {
             if (content.trim() !== "") {
                 this.currentUser.messages.push({
-                    date: new Date().getHours().setHours(),
+                    date: new Date().getHours(),
                     message: content,
                     status: 'sent',
                 });
@@ -176,11 +181,17 @@ const app = new Vue({
             }
         },
         isVisible() {
-            this.visible = !this.visible
+            this.elementVisible = !this.elementVisible
         },
+    },
+    computed: {
+        filteredList() {
+            return this.contacts.filter(element => {
+                return element.name.toLowerCase().includes(this.search.toLowerCase())
+            })
+        }
+    },
 
-
-    }
 });
 
 

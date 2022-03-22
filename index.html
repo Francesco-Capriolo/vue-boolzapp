@@ -55,14 +55,15 @@
                     <div class="input-group">
                         <button class="btn btn-outline-light" type="button" id="button-addon1"><i
                                 class="fas fa-search"></i></button>
-                        <input type="text" class="form-control btn-outline-light d-none d-sm-inline-block"
+                        <input v-model="search" type="text"
+                            class="form-control btn-outline-light d-none d-sm-inline-block"
                             placeholder="Cerca o inizia una nuova chat">
                     </div>
 
                     <!-- contact list  -->
 
                     <div class="my-listcontact">
-                        <div id="list-contact" class="d-flex position-relative" v-for="(element,index) in contacts "
+                        <div id="list-contact" class="d-flex position-relative" v-for="(element,index) in filteredList "
                             @click="setUser(element)">
                             <div>
                                 <img class="rounded-pill " :src="'img/avatar' + element.avatar + '.jpg'" alt="">
@@ -102,8 +103,12 @@
                     <div id="myChat" class="pt-4 px-2 d-flex flex-column overflow-auto">
                         <div class="d-inline-block p-2 rounded-3 col-5 position-relative py-4 my-1"
                             v-for="(messages,element,index) in currentUser?.messages"
-                            :class="(messages.status === 'sent') ? 'my-sent-chat , offset-6' : 'my-receveid-chat'">
+                            :class="(messages.status === 'sent') ? 'my-sent-chat , offset-6' : 'my-receveid-chat'"
+                            @mouseover="elementVisible = true" @mouseleave="elementVisible = false">
+                            <!-- @click="isVisible()" -->
                             <span>{{messages.message}}</span>
+                            <i v-show="elementVisible"
+                                class="fas fa-chevron-down position-absolute top-0 end-0 p-2"></i>
                             <span class="position-absolute bottom-0 end-0 info-text">{{messages.date}}</span>
                         </div>
                     </div>
