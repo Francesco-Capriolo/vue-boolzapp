@@ -162,12 +162,15 @@ const app = new Vue({
         setUser(user) {
             this.currentUser = user;
         },
+
         addVal(content) {
             if (content.trim() !== "") {
-                this.contacts[messages].push({
-                    date: getHours(),
+                const newMessage = {
                     message: content,
                     status: 'sent',
+                }
+                this.contacts[index].messages.push({
+                    newMessage,
                 });
                 this.inputVal = "";
             } else {

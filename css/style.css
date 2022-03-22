@@ -28,6 +28,10 @@ div.bg-info i.fas {
     border-radius: 50%;
 }
 
+.my-listcontact {
+    overflow-y: auto;
+}
+
 i {
     color: grey;
     padding: 0 6px;
@@ -46,6 +50,7 @@ span.info-text {
 .header-search,
 .bottom-search {
     background-color: #f3eeea;
+    height: 50px;
 }
 
 /* main chat */

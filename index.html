@@ -60,7 +60,8 @@
                     </div>
 
                     <!-- contact list  -->
-                    <div class="overflow-auto">
+
+                    <div class="my-listcontact">
                         <div id="list-contact" class="d-flex position-relative" v-for="(element,index) in contacts "
                             @click="setUser(element)">
                             <div>
@@ -80,11 +81,10 @@
 
                 <div class="col-10 col-sm-9 col-md-8 bg_chat">
                     <div class="header-search d-flex bg-light justify-content-between">
-                        <div class="col col-lg-7 d-flex" v-for="(element,index) in contacts"
-                            :class="(setUser(element)) ? 'd-block' : 'd-none'">
-                            <img class="rounded-pill " src="'img/avatar' + element.avatar + '.jpg'" alt="">
+                        <div class="col col-lg-7 d-flex" v-for="(element,index) in currentUser" :key="index">
+                            <img class="rounded-pill " src="'img/avatar' + currentUser.avatar + '.jpg'" alt="">
                             <div class="d-inline-block d-flex flex-column">
-                                <span class="d-none d-md-inline-block">{{element.name}}</span>
+                                <span class="d-none d-md-inline-block">{{currentUser.name}}</span>
                                 <span class="info-text">Ultimo accesso oggi alle 12:00</span>
                             </div>
                         </div>
