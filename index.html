@@ -27,12 +27,12 @@
 
                     <!-- div aside -->
 
-                    <div class="header-search d-flex bg-light justify-content-between">
-                        <div class="col col-lg-7">
+                    <div class="header-search d-flex bg-light justify-content-between align-items-center">
+                        <div class="col col-md-8">
                             <img class="rounded-pill " src="img/avatar_io.jpg" alt="">
                             <span class="d-none d-md-inline-block">Francesca</span>
                         </div>
-                        <div class="col py-2 text-end d-none d-md-block">
+                        <div class="col text-end d-none d-md-block">
                             <i class="fas fa-circle-notch"></i>
                             <i class="fas fa-comment-alt"></i>
                             <i class="fas fa-ellipsis-v"></i>
@@ -80,15 +80,19 @@
                 <!-- header chat -->
 
                 <div class="col-10 col-sm-9 col-md-8 bg_chat">
-                    <div class="header-search d-flex bg-light justify-content-between">
-                        <div class="col col-lg-7 d-flex" v-for="(element,index) in currentUser" :key="index">
-                            <img class="rounded-pill " src="'img/avatar' + currentUser.avatar + '.jpg'" alt="">
+                    <div class="header-search d-flex bg-light justify-content-between align-items-center">
+                        <div v-if="currentUser" class="col col-lg-7 d-flex">
+                            <img class="rounded-pill " src="'img/avatar' + element.avatar + '.jpg'" alt="">
                             <div class="d-inline-block d-flex flex-column">
-                                <span class="d-none d-md-inline-block">{{currentUser.name}}</span>
-                                <span class="info-text">Ultimo accesso oggi alle 12:00</span>
+                                <span v-if="currentUser"
+                                    class="d-none d-md-inline-block pt-1">{{currentUser.name}}</span>
+
+                                <span v-if="currentUser" class="info-text">Ultimo accesso oggi alle 12:00</span>
+
                             </div>
                         </div>
-                        <div class="col py-2 text-end">
+                        <h3 v-else class="d-md-inline-block p-2 text-success">WhatsApp</h3>
+                        <div class="col text-end">
                             <i class="fas fa-search"></i>
                             <i class="fa-solid fa-paperclip"></i>
                             <i class="fas fa-ellipsis-v"></i>
@@ -113,7 +117,7 @@
                             <i class="fa-solid fa-face-smile"></i>
                         </div>
                         <input type="text" v-model="inputVal" class="form-control" placeholder="Scrivi un messaggio"
-                            @keydown.enter="addVal(inputVal)">
+                            @keydown.enter="addVal(inputVal,index)">
                         <div class="input-group-text">
                             <i class="fa-solid fa-microphone"></i>
                         </div>

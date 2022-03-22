@@ -163,13 +163,13 @@ const app = new Vue({
             this.currentUser = user;
         },
 
-        addVal(content) {
+        addVal(content, toindex) {
             if (content.trim() !== "") {
                 const newMessage = {
                     message: content,
                     status: 'sent',
                 }
-                this.contacts[index].messages.push({
+                this.contacts[toindex].messages.push({
                     newMessage,
                 });
                 this.inputVal = "";
