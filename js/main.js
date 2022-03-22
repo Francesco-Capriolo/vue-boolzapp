@@ -166,7 +166,7 @@ const app = new Vue({
         addVal(content) {
             if (content.trim() !== "") {
                 this.currentUser.messages.push({
-                    date: new Date().getHours,
+                    date: new Date().getHours().setHours(),
                     message: content,
                     status: 'sent',
                 });
@@ -179,9 +179,9 @@ const app = new Vue({
             this.visible = !this.visible
         },
 
+
     }
 });
-
 
 
 /* 
