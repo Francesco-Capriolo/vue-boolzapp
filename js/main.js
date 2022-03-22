@@ -163,14 +163,12 @@ const app = new Vue({
             this.currentUser = user;
         },
 
-        addVal(content, toindex) {
+        addVal(content) {
             if (content.trim() !== "") {
-                const newMessage = {
+                this.currentUser.messages.push({
+                    date: new Date().getHours,
                     message: content,
                     status: 'sent',
-                }
-                this.contacts[toindex].messages.push({
-                    newMessage,
                 });
                 this.inputVal = "";
             } else {
@@ -179,7 +177,8 @@ const app = new Vue({
         },
         isVisible() {
             this.visible = !this.visible
-        }
+        },
+
     }
 });
 

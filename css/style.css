@@ -11,6 +11,11 @@
     background-color: #d9dbd4;
 }
 
+.my-container {
+    min-width: 350px;
+    min-height: 160px;
+}
+
 /* div left */
 
 .div-aside {
@@ -22,13 +27,23 @@ img {
     padding: 5px;
 }
 
+div.bg-info {
+    height: 60px;
+}
+
+div.input-group {
+    height: 40px;
+}
+
+
 div.bg-info i.fas {
-    font-size: 30px;
+    font-size: 25px;
     color: #8edafc;
     border-radius: 50%;
 }
 
 .my-listcontact {
+    height: calc(100% - 50px - 40px - 60px);
     overflow-y: auto;
 }
 
@@ -53,6 +68,10 @@ span.info-text {
     height: 50px;
 }
 
+.wrap-icons .fas {
+    padding: 0;
+}
+
 /* main chat */
 
 .bg_chat {
@@ -64,7 +83,7 @@ span.info-text {
 }
 
 #myChat {
-    height: calc(100% - 100px);
+    height: calc(100% - 90px);
 }
 
 .bottom-search {
