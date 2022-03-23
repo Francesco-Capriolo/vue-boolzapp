@@ -63,8 +63,11 @@
                     <!-- contact list  -->
 
                     <div class="my-listcontact">
+
+                        <!-- div che crea la lista dei contatti -->
+
                         <div id="list-contact" class="d-flex position-relative" v-for="(element,index) in filteredList "
-                            @click="setUser(element)">
+                            @click="setUser(element)" :class="(currentUser == element) ? 'active' : ''">
                             <div>
                                 <img class="rounded-pill " :src="'img/avatar' + element.avatar + '.jpg'" alt="">
                             </div>
@@ -77,11 +80,15 @@
                     </div>
                 </div>
 
-                <!-- div chat -->
+                <!-- chat -->
+
                 <!-- header chat -->
 
                 <div class="col-10 col-sm-9 col-md-8 bg_chat">
                     <div class="header-search d-flex bg-light justify-content-between align-items-center">
+
+                        <!-- div che contiene il nome e l'avatar selezionato -->
+
                         <div v-if="currentUser" class="col col-lg-7 d-flex">
                             <img class="rounded-pill " :src="'img/avatar' + currentUser.avatar + '.jpg'" alt="">
                             <div class="d-inline-block d-flex flex-column">
@@ -101,14 +108,29 @@
                     <!-- chat -->
 
                     <div id="myChat" class="pt-4 px-2 d-flex flex-column overflow-auto">
+
+                        <!-- div che contiene i messaggi -->
+
                         <div class="d-inline-block p-2 rounded-3 col-5 position-relative py-4 my-1"
-                            v-for="(messages,element,index) in currentUser?.messages"
+                            v-for="(messages,index) in currentUser?.messages"
                             :class="(messages.status === 'sent') ? 'my-sent-chat , offset-6' : 'my-receveid-chat'"
                             @mouseover="elementVisible = true" @mouseleave="elementVisible = false">
-                            <!-- @click="isVisible()" -->
-                            <span>{{messages.message}}</span>
-                            <i v-show="elementVisible"
-                                class="fas fa-chevron-down position-absolute top-0 end-0 p-2"></i>
+                            <span v-if="messages.message == ''">
+                                Questo messaggio è stato cancellato</span>
+                            <span v-else>{{messages.message}}</span>
+
+                            <!-- div che contiene l'icona e il dropdown -->
+
+                            <div class="position-absolute top-0 end-0 p-2" @click="isdropdown()"
+                                @mouseleave="dropdownContent = false">
+                                <i v-show="elementVisible" class="fas fa-chevron-down"></i>
+                                <div class="dropdown-content" v-if="dropdownContent"
+                                    :class="(dropdownContent = true) ? 'd-block' : ''">
+                                    <a @click="deleteMessage(index)">Delete Message</a>
+                                    <a href="#">Inoltra</a>
+                                </div>
+                            </div>
+
                             <span class="position-absolute bottom-0 end-0 info-text">{{messages.date}}</span>
                         </div>
                     </div>
@@ -130,7 +152,24 @@
         </section>
     </main>
 
-    <footer></footer>
+    <footer>
+
+        <i v-show="elementVisible" class="fas fa-chevron-down position-absolute top-0 end-0 p-2">
+            <ul class="dropdown-menu">
+                <li class="dropdown-menu__item">
+                    <a class="dropdown-menu__link">delete Message</a>
+                </li>
+
+                <li class="dropdown-menu__item">
+                    <a class="dropdown-menu__link">Inoltra</a>
+                </li>
+            </ul>
+        </i>
+
+    </footer>
+    <!-- CDN example (unpkg) -->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/plugin/utc.js"></script>
 
     <script type="text/javascript" src="js/main.js"></script>
 </body>

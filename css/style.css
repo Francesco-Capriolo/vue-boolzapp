@@ -72,6 +72,11 @@ span.info-text {
     padding: 0;
 }
 
+.active {
+    background-color: #f3eeea;
+}
+
+
 /* main chat */
 
 .bg_chat {
@@ -92,4 +97,26 @@ span.info-text {
 
 .my-receveid-chat {
     background-color: white;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 70px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 6px 5px;
+    text-decoration: none;
+    font-size: 8px;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd
 }

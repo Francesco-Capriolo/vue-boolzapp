@@ -156,33 +156,50 @@ const app = new Vue({
             }
         ],
         currentUser: null,
+        dropdownContent: false,
         inputVal: "",
         search: "",
         elementVisible: true,
     },
-    created() {
-        setTimeout(() => this.elementVisible = false, 1000)
-    },
     methods: {
+        //per assegnare un un solo elemento della lista 
         setUser(user) {
             this.currentUser = user;
         },
-
+        //aggiungere un messaggio nella chat
         addVal(content) {
             if (content.trim() !== "") {
                 this.currentUser.messages.push({
-                    date: new Date().getHours(),
+                    date: new Date().toTimeString(),
                     message: content,
                     status: 'sent',
                 });
+                setTimeout(() => {
+                    this.currentUser.messages.push({
+                        date: new Date().toTimeString(),
+                        message: "ok",
+                        status: 'receveid',
+                    });
+                }, 1000);
+
                 this.inputVal = "";
             } else {
                 console.warn("non hai inserito niente");
             }
         },
+        //per vedere l'icona
         isVisible() {
             this.elementVisible = !this.elementVisible
         },
+        //per vedere il dropdown dell'icona
+        isdropdown() {
+            this.dropdownContent = !this.dropdownContent
+        },
+        //per eliminare un messaggio
+        deleteMessage(i) {
+            this.currentUser.messages[i].message = "";
+        },
+
     },
     computed: {
         filteredList() {
@@ -192,7 +209,10 @@ const app = new Vue({
         }
     },
 
+
 });
+
+
 
 
 /* 
