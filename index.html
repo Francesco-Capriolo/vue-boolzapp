@@ -73,7 +73,7 @@
                             </div>
                             <div class="d-none d-md-block">
                                 <span class="d-none d-md-block">{{element.name}}</span>
-                                <span class="info-text">Ultimo messaggio inviato</span>
+                                <span class="info-text">Ultimo messaggio inviato {{element.date}}</span>
                                 <span class="info-text position-absolute top-0 end-0 pe-1">12:00</span>
                             </div>
                         </div>
@@ -132,6 +132,7 @@
                             </div>
 
                             <span class="position-absolute bottom-0 end-0 info-text">{{messages.date}}</span>
+
                         </div>
                     </div>
 
@@ -152,24 +153,11 @@
         </section>
     </main>
 
-    <footer>
+    <footer></footer>
 
-        <i v-show="elementVisible" class="fas fa-chevron-down position-absolute top-0 end-0 p-2">
-            <ul class="dropdown-menu">
-                <li class="dropdown-menu__item">
-                    <a class="dropdown-menu__link">delete Message</a>
-                </li>
-
-                <li class="dropdown-menu__item">
-                    <a class="dropdown-menu__link">Inoltra</a>
-                </li>
-            </ul>
-        </i>
-
-    </footer>
     <!-- CDN example (unpkg) -->
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-    <script src="https://unpkg.com/dayjs@1.8.21/plugin/utc.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/plugin/customParseFormat.js"></script>
 
     <script type="text/javascript" src="js/main.js"></script>
 </body>

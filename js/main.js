@@ -170,13 +170,13 @@ const app = new Vue({
         addVal(content) {
             if (content.trim() !== "") {
                 this.currentUser.messages.push({
-                    date: new Date().toTimeString(),
+                    date: NowDay.format("HH:mm"),
                     message: content,
                     status: 'sent',
                 });
                 setTimeout(() => {
                     this.currentUser.messages.push({
-                        date: new Date().toTimeString(),
+                        date: NowDay.format("HH:mm"),
                         message: "ok",
                         status: 'receveid',
                     });
@@ -209,12 +209,15 @@ const app = new Vue({
         }
     },
 
-
+    onlyHours(i) {
+        return this.currentUser.messages[i].date.NowDay.format("HH:mm")
+    }
 });
 
+const NowDay = dayjs('05/02/1869 13:02', 'DD/MM/YYYY HH:mm')
 
 
-
+console.log(onlyHours(date));
 /* 
 Milestone 1
 Replica della grafica con la possibilità di avere messaggi scritti dall’ utente(verdi) e dall’ interlocutore(bianco) assegnando due classi CSS diverse
