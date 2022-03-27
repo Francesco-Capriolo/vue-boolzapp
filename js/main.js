@@ -199,14 +199,21 @@ const app = new Vue({
         deleteMessage(i) {
             this.currentUser.messages[i].message = "";
         },
+        //per cercare il nome nella lista dei contatti
+        filteredList(searchContact) {
+            const self = this;
+            self.contacts.forEach((element) => {
+                if (element.name.toLowerCase().includes(searchContact.toLowerCase().trim())) { //se corrisponde allora si vede con l'if sull'html
+                    element.visible = true;
+                } else {
+                    element.visible = false;
+                }
+            })
+        }
 
     },
     computed: {
-        filteredList() {
-            return this.contacts.filter(element => {
-                return element.name.toLowerCase().includes(this.search.toLowerCase())
-            })
-        }
+
     },
 
     onlyHours(i) {
@@ -216,8 +223,6 @@ const app = new Vue({
 
 const NowDay = dayjs('05/02/1869 13:02', 'DD/MM/YYYY HH:mm')
 
-
-console.log(onlyHours(date));
 /* 
 Milestone 1
 Replica della grafica con la possibilità di avere messaggi scritti dall’ utente(verdi) e dall’ interlocutore(bianco) assegnando due classi CSS diverse

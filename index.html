@@ -57,7 +57,7 @@
                                 class="fas fa-search"></i></button>
                         <input v-model="search" type="text"
                             class="form-control btn-outline-light d-none d-sm-inline-block"
-                            placeholder="Cerca o inizia una nuova chat">
+                            placeholder="Cerca o inizia una nuova chat" @keyup="filteredList(search)">
                     </div>
 
                     <!-- contact list  -->
@@ -66,8 +66,9 @@
 
                         <!-- div che crea la lista dei contatti -->
 
-                        <div id="list-contact" class="d-flex position-relative" v-for="(element,index) in filteredList "
-                            @click="setUser(element)" :class="(currentUser == element) ? 'active' : ''">
+                        <div id="list-contact" class="d-flex position-relative" v-for="(element,index) in contacts"
+                            @click="setUser(element)" :class="(currentUser == element) ? 'active' : ''"
+                            v-if="element.visible">
                             <div>
                                 <img class="rounded-pill " :src="'img/avatar' + element.avatar + '.jpg'" alt="">
                             </div>
